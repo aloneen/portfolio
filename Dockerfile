@@ -6,7 +6,12 @@ WORKDIR /app
 
 # Скопируйте файлы проекта
 COPY pom.xml .
+COPY mvnw .
+COPY .mvn/ .
 COPY src ./src
+
+# Установите права на выполнение для mvnw
+RUN chmod +x mvnw
 
 # Соберите приложение
 RUN ./mvnw clean package -DskipTests
