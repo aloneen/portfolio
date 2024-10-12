@@ -1,26 +1,27 @@
-# Используем образ с JDK 21 для сборки приложения
+# Используйте официальный образ Java
 FROM eclipse-temurin:21-jdk-alpine AS build
 
-# Устанавливаем рабочую директорию внутри контейнера
+# Установите рабочую директорию
 WORKDIR /app
 
-# Копируем файлы проекта в контейнер
-COPY . .
+# Скопируйте файлы проекта
+COPY pom.xml .
+COPY src ./src
 
-# Выполняем команду сборки Maven, чтобы собрать JAR-файл
-RUN ./mvnw clean package
+# Соберите приложение
+RUN ./mvnw clean package -DskipTests
 
-# Используем минимальный JDK образ для запуска приложения
+# Используйте легковесный образ для запуска приложения
 FROM eclipse-temurin:21-jdk-alpine
 
-# Устанавливаем рабочую директорию
+# Установите рабочую директорию
 WORKDIR /app
 
-# Копируем JAR-файл из предыдущего шага
-COPY --from=build /app/target/*.jar app.jar
+# Скопируйте собранный JAR файл из предыдущего этапа
+COPY --from=build /app/target/thymeleafBasic-0.0.1-SNAPSHOT.jar ./thymeleafBasic.jar
 
-# Указываем порт
+# Укажите команду для запуска приложения
+ENTRYPOINT ["java", "-jar", "thymeleafBasic.jar"]
+
+# Укажите порт, на котором будет запущено приложение
 EXPOSE 8080
-
-# Команда для запуска приложения
-ENTRYPOINT ["java", "-jar", "app.jar"]
