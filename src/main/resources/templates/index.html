@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>My Portfolio</title>
+</head>
+<body>
+
+<header class="header">
+  <div class="container">
+    <div class="header_inner">
+      <a href="/" class="header_logo">
+        DS
+      </a>
+      <nav class="header_nav">
+        <a href="/" class="header_link">Home</a>
+        <a href="#main" class="header_link">About Me</a>
+        <a href="#message" class="header_link last-link">Contact</a>
+      </nav>
+    </div>
+    <div class="header_intro">
+      <h1>Dias Seisenbek</h1>
+    </div>
+  </div>
+</header>
+
+
+<div class="main_content" id="main">
+  <div class="container">
+    <div class="main_inner">
+      <div class="main_h">
+        <h2>Hello! My name is Dias Seisenbek.</h2>
+      </div>
+
+      <p class="main_text">
+        I'm Java Junior Developer. I study at Narxoz University. Here is my <a href="https://github.com/aloneen" class="github">GitHub</a> Account.
+      </p>
+    </div>
+  </div>
+</div>
+
+
+
+<section class="skills" id="skills">
+  <div class="container">
+
+    <div class="skills_head">
+      <h2>Skills:</h2>
+    </div>
+
+
+    <div class="skills_inner">
+
+
+      <div class="skill">
+        <div class="skill_name">Java</div>
+        <img src="img/java.png" height="100px" class="skill_img">
+      </div>
+
+      <div class="skill">
+        <div class="skill_name">Spring Boot</div>
+        <img src="img/spring.png" height="100px" class="skill_img">
+      </div>
+
+      <div class="skill">
+        <div class="skill_name">MySQL</div>
+        <img src="img/mysql.png" height="80px" class="skill_img">
+      </div>
+
+      <div class="skill">
+        <div class="skill_name">PostgreSQL</div>
+        <img src="img/postgresql.png" height="80px" class="skill_img">
+      </div>
+
+      <div class="skill">
+        <div class="skill_name">PHP</div>
+        <img src="img/php.png" height="80px" class="skill_img">
+      </div>
+
+      <div class="skill">
+        <div class="skill_name">Docker</div>
+        <img src="img/docker.png" height="80px" class="skill_img">
+      </div>
+
+      <div class="skill">
+        <div class="skill_name">Python</div>
+        <img src="img/python.png" height="80px" class="skill_img">
+      </div>
+
+
+      <div class="skill">
+        <div class="skill_name">Flask</div>
+        <img src="img/flask.png" height="100px" class="skill_img">
+      </div>
+
+      <div class="skill">
+        <div class="skill_name">RESTful API</div>
+        <img src="img/rest.png" height="80px" class="skill_img">
+      </div>
+
+      <div class="skill">
+        <div class="skill_name">Design Patterns</div>
+        <img src="img/design.png" height="80px" class="skill_img">
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+
+<div class="projects">
+  <div class="container">
+    <div class="projects_inner">
+      <h2>Projects:</h2>
+
+      <div class="projects_box">
+        <div class="project">
+          <img src="img/trade2.png" height="100px" class="project_img">
+          <div class="project_name">
+            Sauda.kz
+          </div>
+          <div class="description">
+            It's website analog of OLX.
+          </div>
+        </div>
+
+        <div class="project">
+          <img src="img/forum2.png" height="100px" class="project_img">
+          <div class="project_name">
+            Forum.kz
+          </div>
+          <div class="description">
+            It's average forum. Made by php.
+          </div>
+        </div>
+
+        <div class="project">
+          <img src="img/diary.png" height="100px" class="project_img">
+          <div class="project_name">
+            Diary
+          </div>
+          <div class="description">
+            Diary made by Flask Python.
+          </div>
+        </div>
+
+        <div class="project">
+          <img src="img/code.png" height="100px" class="project_img">
+          <div class="project_name">
+            Microservices
+          </div>
+          <div class="description">
+            <a href="https://github.com/aloneen">GitHub</a>. All Microservices there.
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+<div class="message" id="message">
+  <div class="container">
+    <form action="/send" method="post" class="message_inner">
+      <div class="message_header input">
+        <h2>Send me message</h2>
+      </div>
+
+
+      <div class="input">
+        <input type="text" id="name" name="name" required placeholder="Name: ">
+        <br>
+      </div>
+
+      <div class="input">
+        <input type="email" id="email" name="email" required placeholder="Email: ">
+        <br>
+      </div>
+
+      <div class="input">
+        <textarea id="message" name="message" required placeholder="Message: "></textarea>
+        <br>
+      </div>
+
+      <div class="input">
+        <button type="submit" class="submit">Send</button>
+      </div>
+    </form>
+              <div th:if="${param.success}">
+                <p class="success">Message has sended successfully</p>
+              </div>
+  </div>
+</div>
+
+
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer_inner">
+      <a href="/" class="footer_logo">
+        DS
+      </a>
+      <nav class="footer_nav">
+        <a href="https://github.com/aloneen" class="footer_link">GitHub</a>
+        <a href="https://www.instagram.com/seisen.d/" class="footer_link">Instagram</a>
+        <a href="https://t.me/whocares_believe" class="footer_link">Telegram</a>
+      </nav>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
