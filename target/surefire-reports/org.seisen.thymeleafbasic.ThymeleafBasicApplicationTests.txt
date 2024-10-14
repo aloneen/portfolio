@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: org.seisen.thymeleafbasic.ThymeleafBasicApplicationTests
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 6.975 s -- in org.seisen.thymeleafbasic.ThymeleafBasicApplicationTests
